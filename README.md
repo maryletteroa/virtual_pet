@@ -4,7 +4,7 @@
 
 a Solo Project for Chingu
 
-See [Specifications](https://github.com/chingu-voyages/soloproject-tier1-virtualpet#functionality) 📃
+See [Specifications](https://github.com/chingu-voyages/soloproject-tier1-virtualpet) 📃
 
 
 
