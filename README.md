@@ -10,7 +10,7 @@ See [Specifications](https://github.com/chingu-voyages/soloproject-tier1-virtual
 ## Game rules
 Take good care of your virtual pet. Game ends when the pet has:
  - 0% health 🤧
- - 100% hungry 😵
+ - 100% hunger 😵
  - 0% happiness 😢
 
 TO DOs:
@@ -30,6 +30,7 @@ TO DOs:
 - [x] Game control 
     - [x] logic: clean, feed, play
     - [ ] show inc/dec values on screen
+    - [ ] optimal adjust inc/dec
 - [x] Initialize stats bar: random
 - [x] Stats
     - [x] health, hunger, happiness
@@ -42,7 +43,5 @@ TO DOs:
 - [ ] Improve aesthetics
     - [ ] background
     - [ ] game over view
-- [ ] Game play
-    - [ ] adjust inc/dec
-- [ ] Clean up ✨
+- [ ] ✨ Clean up ✨
 
