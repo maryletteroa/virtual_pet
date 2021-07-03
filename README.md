@@ -1,11 +1,12 @@
-# Virtual Pet
+# Virtual Pet 🐾
 
 ⚠ in development! ⚠ 
 
-a Solo Project for Chingu
+Preview the work-in-progress here 👉:  [Virtual Pet]( maryletteroa.github.io/virtual_pet)
+
+## A Solo Project for Chingu
 
 See [Specifications](https://github.com/chingu-voyages/soloproject-tier1-virtualpet) 📃
-
 
 ## Game rules
 Take good care of your virtual pet. Game ends when the pet has:
@@ -13,7 +14,7 @@ Take good care of your virtual pet. Game ends when the pet has:
  - 100% hunger 😵
  - 0% happiness 😢
 
-TO DOs:
+## TO DOs:
 - [x] wireframe
 - [x] Base HTML/CSS
     - [x] Side panel, main game panel
@@ -30,13 +31,13 @@ TO DOs:
     - [x] hurt
     - [x] dead
 - [x] Pet age increment
-- [x] Game control 
+- [ ] Game control 
     - [x] logic: clean, feed, play
     - [ ] show inc/dec values on screen
     - [ ] optimal adjust inc/dec
     - [x] change bar color at threshold
-- [x] Initialize stats bar: random
 - [x] Stats
+    - [x] initialize to full
     - [x] health, hunger, happiness
     - [x] set upper and lower limit 
     - [x] update stats bar indicator
@@ -50,8 +51,6 @@ TO DOs:
     - [ ] polish
 - [ ] ✨ Clean up ✨
 
-
-
-Sprite resources
+## Credits
 - [Cat & Dog - Free Sprites](https://www.gameart2d.com/cat-and-dog-free-sprites.html)
 - Background Image attribution: [Background vector](https://www.freepik.com/vectors/background) created by macrovector - www.freepik.com
