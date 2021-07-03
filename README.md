@@ -25,12 +25,16 @@ TO DOs:
 - [x] Initialize setup
 - [x] Reset setup (clear)
 - [ ] Instructions page
-- [ ] Sprite animation (idle, happy, sad)
+- [x] Sprite animation
+    - [x] idle
+    - [x] hurt
+    - [x] dead
 - [x] Pet age increment
 - [x] Game control 
     - [x] logic: clean, feed, play
     - [ ] show inc/dec values on screen
     - [ ] optimal adjust inc/dec
+    - [x] change bar color at threshold
 - [x] Initialize stats bar: random
 - [x] Stats
     - [x] health, hunger, happiness
@@ -41,7 +45,13 @@ TO DOs:
     - [x] stop age increment
     - [x] show name and age
 - [ ] Improve aesthetics
-    - [ ] background
-    - [ ] game over view
+    - [x] background
+    - [x] game over view
+    - [ ] polish
 - [ ] ✨ Clean up ✨
 
+
+
+Sprite resources
+- [Cat & Dog - Free Sprites](https://www.gameart2d.com/cat-and-dog-free-sprites.html)
+- Background Image attribution: [Background vector](https://www.freepik.com/vectors/background) created by macrovector - www.freepik.com
