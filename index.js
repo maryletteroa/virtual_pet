@@ -1,7 +1,56 @@
-// one pet name submit:
-// hide welcome screen, 
-// display name
-// display game buttons
+const canvas = document.getElementById("canvas1");
+const ctx = canvas.getContext("2d");
+const CANVAS_WIDTH = canvas.width = 750;
+const CANVAS_HEIGHT = canvas.height = 400;
+
+const playerImage = new Image();
+playerImage.src = "./assets/idle.png";
+let spriteWidth = 547
+let spriteHeight = 481
+
+let state_num = 0
+let spriteStates = [
+    {
+        "src": "./assets/idle.png",
+        "frames": 9,
+        "width": 547,
+        "height": 481,
+    }, 
+    {
+        "src": "./assets/hurt.png",
+        "frames": 8,
+        "width": 547,
+        "height": 481,
+    },
+    {
+        "src": "./assets/dead.png",
+        "frames": 6,
+        "width" : 580,
+        "height": 510,
+    }
+]
+
+let frameX = 0;
+let gameFrame = 0;
+let staggerFrames = 8;
+
+function animate(){
+    ctx.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT)
+    // ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+    ctx.drawImage(playerImage, frameX * spriteWidth, 0, spriteWidth, spriteHeight, 180, 50, spriteWidth/1.5, spriteHeight/1.5);
+    if (gameFrame % staggerFrames == 0) {        
+        if (frameX < spriteStates[state_num].frames) {
+            frameX ++;
+        } else {
+            frameX =0;
+        }
+    }
+    gameFrame++;
+    requestAnimationFrame(animate);
+}
+animate()
+
+
 
 let welcomeScreen = document.querySelector("#welcome_screen");
 let userPetName = document.getElementById("pet_name_input");
@@ -15,15 +64,12 @@ let isGameOver = false;
 let endGamePetName = document.getElementById("end_game_pet_name");
 let endGameAge = document.getElementById("end_game_age");
 
-// initial and refresh setup of the game
-
 function beginGame() {
     if (userPetName.value == "") {
         alert("Please provide a pet name.")
     } else {
         petName.innerHTML = userPetName.value;
         welcomeScreen.style.display = "none";
-        // userPetName.value = "";
         characterContainer.style.display = "flex";
         gameControlsContainer.style.display = "flex";
         resetButton.style.display = "inline";
@@ -33,7 +79,6 @@ function beginGame() {
 }
 
 function endGame() {
-    let isGameOver = true;
     characterContainer.style.display = "none";
     gameControlsContainer.style.display = "none";
     welcomeScreen.style.display = "none";
@@ -42,13 +87,6 @@ function endGame() {
     endGamePetName.innerHTML = "R.I.P. " + petName.innerHTML;
     endGameAge.innerHTML = age + " days old";
 }
-
-function clearStats() {
-    statsBar.forEach(function(stat) {
-        stat.style.display = "none";
-    });
-}
-
 
 function resetGame () {
     window.location.reload();
@@ -75,11 +113,32 @@ function setUpStats() {
     });
 }
 
+
+function colorThreshold(health, hunger, happiness) {
+    if (health < 50) {
+        statsHealth.style.backgroundColor = "red";
+    } else {
+        statsHealth.style.backgroundColor = "blue";
+    };
+    if (hunger > 50) {
+        statsHunger.style.backgroundColor = "red";
+    } else {
+        statsHunger.style.backgroundColor = "green";
+    };
+    if (happiness < 50) {
+        statsHappiness.style.backgroundColor = "red";
+    } else {
+        statsHappiness.style.backgroundColor = "orange";
+    };
+}
+
+
 function updateStats() {
-    // at each pet day
-        // hunger ++
-        // health --
-        // happiness -- by random number
+    /* at each pet day
+        hunger ++
+        health --
+        happiness -- by random number
+    */
     setInterval(function () {
         if (health > 0 ) {
             health --;
@@ -99,23 +158,41 @@ function updateStats() {
         statsBar.forEach( function(stat, index) {
             stat.style.width = stats[index] + "%";
             stat.innerHTML = stats[index] + "%";
-            }
-        );
+        });
         if (health === 0 && hunger === 100 && happiness === 0) {
             endGame();
         } else {
             age ++;
             petAge.innerHTML = age + " days old";
-        }
+        };
+
+        colorThreshold(health, hunger, happiness);
+
+        if (happiness < 50 | hunger > 50) {
+            state_num = 1;
+        };
+
+        if (health < 50) {
+            state_num = 2;
+        };
+
+        if (happiness >= 50 && health >= 50 && hunger < 50) {
+            state_num = 0;
+        };
+
+        playerImage.src = spriteStates[state_num].src;
+        spriteWidth = spriteStates[state_num].width;
+        spriteHeight = spriteStates[state_num].height;
+
     }, 1000);
 }
 
 
-// game control
-    // clean: health ++
-    // feed: hunger--
-    // play: happiness ++
-
+/* game control
+    clean: health ++
+    feed: hunger--
+    play: happiness ++
+*/
 function clean() {
     if (health < 100) {
         health ++;
@@ -148,7 +225,3 @@ function play() {
     statsHappiness.width = happiness + "%";
     statsHappiness.innerHTML = happiness + "%";
 }
-
-
-
-
