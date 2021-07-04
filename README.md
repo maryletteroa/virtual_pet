@@ -2,7 +2,7 @@
 
 ⚠ in development! ⚠ 
 
-Preview the work-in-progress here 👉:  [Virtual Pet]( maryletteroa.github.io/virtual_pet)
+Preview the work-in-progress here 👉:  [Virtual Pet](https://maryletteroa.github.io/virtual_pet/)
 
 ## A Solo Project for Chingu
 
